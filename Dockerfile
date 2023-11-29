@@ -1,6 +1,6 @@
 FROM node:16
-COPY index.html . 
 WORKDIR /app
+COPY index.html /app/public/
 COPY package*.json ./
 RUN npm install
 COPY . .
