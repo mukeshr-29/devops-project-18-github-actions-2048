@@ -32,6 +32,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install trivy -y
           trivy fs .
+      - name: install npm
+        run: |
+          sudo apt install npm -y
       - name: docker build and push
         run: |
           docker build -t 2048-githubaction .
