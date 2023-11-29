@@ -38,4 +38,6 @@ jobs:
           docker tag 2048-githubaction mukeshr29/2048-githubaction
           docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
           docker push mukeshr29/2048-githubaction
+        env:
+          DOCKER_CLI_ACI: 1
       
