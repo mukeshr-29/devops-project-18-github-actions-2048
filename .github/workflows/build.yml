@@ -43,4 +43,14 @@ jobs:
           docker push mukeshr29/2048-githubaction
         env:
           DOCKER_CLI_ACI: 1
+  deploy:
+    needs: build-analyse-scan
+    runs-on: [aws-2048]
+    steps:
+      - name: pull docker img
+        run: docker pull mukeshr29/2048-githubaction
+      - name: trivy img build-analyse-scan  
+        run: trivy image mukeshr29/2048-githubaction
+      - name: run container 2048
+        run: docker run -d --name 2048-game -p 3000:3000 mukeshr29/2048-githubaction
       
