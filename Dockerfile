@@ -3,6 +3,6 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN npm run build
+RUN NODE_ENV=development npm i
 EXPOSE 3000
 CMD ["npm" , "start"]
